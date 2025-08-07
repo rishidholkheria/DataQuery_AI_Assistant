@@ -178,7 +178,6 @@ with tab2:
                     st.write(f"• {region}: ${profit:,.2f}")
 
 with tab1:
-    # Add some example questions in sidebar
     st.sidebar.header("📝 Example Questions")
     st.sidebar.write("• Show all records from North region")
     st.sidebar.write("• What is the total profit by region?")
@@ -205,11 +204,9 @@ with tab1:
             if data:
                 st.subheader(f"Results ({len(data)} rows):")
                 
-                # Display as a proper table using pandas
                 df = pd.DataFrame(data, columns=columns)
                 st.dataframe(df, use_container_width=True)
                 
-                # Add some basic statistics if numeric columns are present
                 if len(data) > 0:
                     st.subheader("📊 Quick Stats:")
                     col1, col2, col3 = st.columns(3)
@@ -217,7 +214,6 @@ with tab1:
                     with col1:
                         st.metric("Total Rows", len(data))
                     
-                    # Try to show profit statistics if profit column exists
                     if 'profit' in columns:
                         profit_idx = columns.index('profit')
                         profits = [row[profit_idx] for row in data if isinstance(row[profit_idx], (int, float))]
@@ -228,7 +224,6 @@ with tab1:
                             with col3:
                                 st.metric("Avg Profit", f"${sum(profits)/len(profits):,.2f}")
                 
-                # Add download button
                 csv = df.to_csv(index=False)
                 st.download_button(
                     label="📥 Download results as CSV",
