@@ -138,7 +138,7 @@ def load_all_sales_data(db):
 
 # Streamlit app
 st.set_page_config(page_title="SQL Query Generator with Gemini", layout="wide")
-st.header("🔍 Gemini App to Retrieve SQL Data")
+st.header("🔍 Data Query Assistant to Retrieve SQL Data")
 st.subheader("Ask questions about your sales data in natural language!")
 
 # Create tabs
